@@ -1,99 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furia landing page</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Chat furia</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
-<header >
-   <a href="" class="cabeçalho">
-    <img src="https://furiagg.fbitsstatic.net/sf/img/logo-furia.svg?theme=main&v=202503171541" alt="logo da furia" width="88" height="32" fetchpriority="high" >
-   </a>
+    <form id="chat">
+        <input type="text" name="username" placeholder="Digite seu nome" required>
+        <div class="messages"></div>
+        <input type="text" name="message" placeholder="Digite sua mensagem" required>
+        <button type="submit">Enviar</button>
+    </form>
 
-</header>
+    <script type="text/javascript">
+        var socket = io('http://localhost:5500');
 
-<main>
-    <div class="container-main">
-        <div class="container-1">
+        function renderMessage(message) {
+            $('.messages').append('<div class="message"><strong>' + message.author + ':</strong> ' + message.message + '</div>');
+        }
+
+        socket.on('previousMessages', function(messages) {
+            for(message of messages) {
+                renderMessage(message);
+            }
+        });
+
+        socket.on('receiveMessage', function(message) {
+            renderMessage(message);
+        });
+
+        $('chat').submit(function(event) {
+            event.preventDefault();
             
-            <div class="container-1-1">
-                <h1 class="titulo-textomain">A maior do brasil</h1>
-                <p class="textomain"> Fundada em 2017, a FURIA possui o time de Counter-Strike que melhor desempenha nas competições internacionais mais recentes, sempre a frente nas colocações entre equipes do país. A organização é uma das  mais respeitadas do Brasil, com um time de League of Legends que se destaca na Liga Brasileira de League of Legends (CBLOL) e no Campeonato Brasileiro de Valorant(VCT). Além disso, a FURIA também possui equipes em outros jogos, como Free Fire, Rainbow Six Siege e Fortnite. A organização é conhecida por seu compromisso com o desenvolvimento de talentos e pela promoção de uma cultura positiva dentro da comunidade de esportes eletrônicos. A FURIA é uma das principais organizações de esports do Brasil e tem se destacado em várias competições internacionais. A equipe de CS:GO da FURIA é uma das mais respeitadas do mundo, tendo conquistado diversos títulos importantes, incluindo o IEM Katowice 2020. Além disso, a organização tem investido em outras modalidades, como League of Legends e Valorant, buscando sempre expandir sua presença no cenário competitivo.</p>
+            var author = $('input[name=username]').val();
+            var message = $('input[name=message]').val();
 
-                <p class="textomain">A organização foi eleita por dois anos consecutivos, em 2020 e 2021, como a melhor organização de esportes eletrônicos no Prêmio eSports Brasil. Em 2022, foi apontada como a quinta maior organização de esportes eletrônicos do mundo pelo portal norte-americano Nerd Street. </p>
-            </div>
+            if (author.length > 0 && message.length > 0) {
+                var messageobject = {
+                    author: author,
+                    message: message
+                };
 
+                renderMessage(messageobject);
 
-
-            <div >
-                <img src="imagens/furia-campea-1-800x533.jpg" alt="wallpaper furia" height="533" width="800" class="img1">	
-            </div>
-
-        </div>
-
-        <div class="fotos-destaques">
-            <img src="imagens/FURIA-VALORANT-2025.jpg" alt="furia Valorant" height="700" width="570" class="fotos">
-            <img src="imagens/adidas-FURIA-768x576.jpg" alt="adidas & furia" height="700" width="570" class="fotos">
-            <img src="imagens/fallen-furia.jpg" alt="fallen & furia" height="700" width="570" class="fotos">
-        </div>
-
-
-
-        <div class="container-2">
-            
-            <h1 class="titulo-loja">
-                Conheça nossos produtos
-            </h1>
-
-            <div class ="banners">
-                <a href="https://www.furia.gg/produtos/performance" target="_blank"><img src="imagens/banner-performance.webp" alt="" height="1000" width="600" class="banner"></a>
-                <a href="https://www.furia.gg/produtos/collabs" target="_blank"><img src="imagens/collabs-desk.webp" alt="" height="1000" width="600" class="banner"></a>
-                <a href="https://www.furia.gg/produtos/colecoes" target="_blank"><img src="imagens/apparel-desk.webp" alt="" height="1000" width="600" class = "banner"></a>
-            </div>
-
-            <div class="botao-loja">
-                <a href="https://www.furia.gg/" target="_blank" class="titulo-botao">conheça nossa loja</a>
-            </div>
-
-        </div>
-
-
-
-    </div>
-
-    <script> window.chtlConfig = { chatbotId: "6753964863" } </script>
-    <script async data-id="6753964863" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
-</main>
-
-
-<footer class="rodape"> 
-
-    <!-- <hr> -->
-    <div class="container-rodape">
-        <div class="container-rodape-1">
-            <a href="" class="cabeçalho">
-                <img src="https://furiagg.fbitsstatic.net/sf/img/logo-furia.svg?theme=main&v=202503171541" alt="logo da furia" width="88" height="32" fetchpriority="high" >
-            </a>
-        </div>
-
-        <div class="container-rodape-2">
-            <h2>Redes sociais</h2>
-            <ul class="redes-sociais">
-                <li><a href="https://www.instagram.com/furiagg/" target="_blank"><img src="imagens/intagram2.jpg" alt="instagram" height="110px"></a></li>
-                <li><a href="https://x.com/FURIA" target="_blank"><img src="imagens/x.png" alt="x" height="80px"></a></li>
-                <li><a href="https://www.twitch.tv/furiatv" target="_blank"><img src="imagens/twitch.png" alt="Twitch" height="110px"></a></li>
-                <li><a href="https://www.youtube.com/@FURIAggCS" target="_blank"><img src="imagens/youtube.png" alt="youtube" height="65px"></a></li>
-            </ul>
-        </div>
-    <div>
-
-    </div>
-    
-</footer>
-
+                socket.emit('sendMessage', messageobject);
+            }
+        });
+    </script>
 </body>
 </html>
