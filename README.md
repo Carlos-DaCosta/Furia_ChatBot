@@ -19,6 +19,9 @@ O projeto tem como principal objetivo demonstrar conhecimentos em:
 
 - **Integração com a API da Twitch.tv**
   - Exibição interativa do conteúdo atual do canal **FuriaTV**
+ 
+- **Integração com a API da PandaScore**
+  - Exibe as informações sobre as futuras partidas da FURIA  
 
 ## Tecnologias Utilizadas
 
@@ -28,6 +31,7 @@ O projeto tem como principal objetivo demonstrar conhecimentos em:
 - Node.js
 - WebSockets
 - API da Twitch.tv
+- API da PandaScore
 
 ---
 
