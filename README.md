@@ -35,4 +35,8 @@ O projeto tem como principal objetivo demonstrar conhecimentos em:
 
 - Este site é voltado para fins de demonstração e aprendizado.
 - Não possui layout responsivo ou suporte para dispositivos móveis.
+- Para iniciar o código usar a syntaxe:
+  
+  npm run dev
 
+- foi criado um script dentro do package.json para facil iniciação
