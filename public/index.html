@@ -63,6 +63,69 @@
           </form>
         </div>
 
+    <!-- container que contem o feed de jogos e a tela da live -->
+    <div class="furia-jogos-live">
+      <!-- APi pandascore para trazer informaçoes sobre os jogos da furia -->
+      <div class="jogos-furia">
+        <h1>Próximos Jogos da FURIA (CS2)</h1>
+        <div id="jogos"></div>
+      
+        <script>
+          // Token de autenticação da API - substitua pelo seu token válido do PandaScore
+          const token = "-hg3iUP2KBeiKUo0zYsAImss131TxPGlpkwI1ReXGh19KsaCslc";
+      
+          // URL da API para buscar jogos futuros de CS:GO
+          const apiURL = `https://api.pandascore.co/csgo/matches/upcoming?token=${token}`;
+      
+          // Faz a requisição para a API
+          fetch(apiURL)
+            .then(response => response.json()) // Converte a resposta em JSON
+            .then(matches => {
+              // Filtra apenas os jogos onde um dos times é a FURIA
+              const jogosFURIA = matches.filter(match =>
+                match.opponents.some(op => op.opponent.name.toLowerCase().includes("furia"))
+              );
+      
+              // Seleciona o elemento da página onde os jogos serão mostrados
+              const container = document.getElementById("jogos");
+      
+              // Caso não haja jogos futuros da FURIA, exibe uma mensagem
+              if (jogosFURIA.length === 0) {
+                container.innerHTML = "<p>Nenhum jogo futuro da FURIA encontrado.</p>";
+                return;
+              }
+      
+              // Para cada jogo da FURIA encontrado
+              jogosFURIA.forEach(match => {
+                // Obtém o nome dos dois times (ou mostra "TBD" se faltar algum)
+                const time1 = match.opponents[0]?.opponent.name || "TBD";
+                const time2 = match.opponents[1]?.opponent.name || "TBD";
+      
+                // Converte a data e hora do jogo para o formato local (pt-BR)
+                const data = new Date(match.begin_at).toLocaleString("pt-BR");
+      
+                // Cria um novo elemento <div> para exibir o jogo
+                const div = document.createElement("div");
+                div.className = "jogo";
+      
+                // Define o conteúdo HTML da <div> com informações do jogo
+                div.innerHTML = `
+                  <strong>${time1} vs ${time2}</strong><br>
+                  Data: ${data}<br>
+                  Torneio: ${match.league.name} (${match.serie.full_name})
+                `;
+      
+                // Adiciona a <div> ao container principal
+                container.appendChild(div);
+              });
+            })
+            .catch(err => {
+              // Em caso de erro na requisição, exibe uma mensagem de erro
+              console.error("Erro ao buscar jogos:", err);
+              document.getElementById("jogos").innerHTML = "<p>Erro ao carregar jogos.</p>";
+            });
+        </script>
+      </div>
         <!-- integraçao com a twich -->
         <div class="twitch-player">
           <script src="https://player.twitch.tv/js/embed/v1.js"></script>
@@ -83,7 +146,7 @@
           </script>
         </div>
       </div>
-
+    </div>
 
       <h3 class="clients-total" id="client-total">Usuários online: 2</h3>
 
@@ -112,10 +175,10 @@
           <div class="container-rodape-2">
               <h2>Redes sociais</h2>
               <ul class="redes-sociais">
-                  <li><a href="https://www.instagram.com/furiagg/" target="_blank"><img src="imagens/intagram2.jpg" alt="instagram" height="110px"></a></li>
-                  <li><a href="https://x.com/FURIA" target="_blank"><img src="imagens/x.png" alt="x" height="80px"></a></li>
-                  <li><a href="https://www.twitch.tv/furiatv" target="_blank"><img src="imagens/twitch.png" alt="Twitch" height="110px"></a></li>
-                  <li><a href="https://www.youtube.com/@FURIAggCS" target="_blank"><img src="imagens/youtube.png" alt="youtube" height="65px"></a></li>
+                  <li><a href="https://www.instagram.com/furiagg/" target="_blank"><img src="imagens/intagram2.jpg" alt="instagram" height="110px" class="social-media"></a></li>
+                  <li><a href="https://x.com/FURIA" target="_blank"><img src="imagens/x.png" alt="x" height="80px" class="social-media"></a></li>
+                  <li><a href="https://www.twitch.tv/furiatv" target="_blank"><img src="imagens/twitch.png" alt="Twitch" height="110px" class="social-media"></a></li>
+                  <li><a href="https://www.youtube.com/@FURIAggCS" target="_blank"><img src="imagens/youtube.png" alt="youtube" height="65px" class="social-media"></a></li>
               </ul>
           </div>
       <div>
