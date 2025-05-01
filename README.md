@@ -52,4 +52,4 @@ O projeto tem como principal objetivo demonstrar conhecimentos em:
 
 em seguida em seu navegador escrever `localhost:4000/`
 
-- foi criado um script dentro do package.json para facil iniciação, entretando, é necessario as seguintes ferramentas: nodemon, socket.io, express.
+- foi criado um script dentro do package.json para facil inicilização, entretando, é necessario as seguintes ferramentas: nodemon, socket.io, express.
