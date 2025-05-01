@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!-- importa a biblioteca de icones font-awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -10,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Chat app</title>
+    <title>Furia chat app</title>
   </head>
   <body>
 
@@ -23,18 +24,16 @@
           <a href="main.html" class="botao"><i class="fa fa-home"></i>Home</a>
           <a href="index.html" class="botao"><i class="fa fa-comments"></i>Chat</a>
         </div>
-
       </ul>
-
     </header>
 
     <main>
-
       <div class="container-1">
-
         <div class="main">
           <div class="name">
+            <!-- classe usada para colocar o emoji de anônimo -->
             <span><i class="far fa-user"></i></span>
+            <!-- input para colocar o nome de usuario -->
             <input
               type="text"
               id="name-input"
@@ -44,8 +43,10 @@
             />
           </div>
 
+          <!-- container onde ficarão visiveis as mensagens enviadas -->
           <ul class="message-container" id="message-container"></ul>
-
+          
+          <!-- input de texto para a mensagem -->
           <form class="message-form" id="message-form">
             <input
               type="text"
@@ -53,16 +54,17 @@
               id="message-input"
               class="message-input"
             />
+            <!-- linha divisoria entre caixa de texto e botao de enviar -->
             <div class="v-divider"></div>
+            <!-- botao de enviar -->
             <button type="submit" class="send-button">
               enviar <span></span>
             </button>
           </form>
         </div>
 
-
+        <!-- integraçao com a twich -->
         <div class="twitch-player">
-
           <script src="https://player.twitch.tv/js/embed/v1.js"></script>
           <div id="twitch-player"></div>
           <script type="text/javascript">
@@ -79,20 +81,21 @@
             }
           var player = new Twitch.Player("twitch-player", options);
           </script>
-
         </div>
-
       </div>
 
 
       <h3 class="clients-total" id="client-total">Usuários online: 2</h3>
 
+      <!-- Importa a biblioteca do Socket.IO do servidor local. -->
       <script src="/socket.io/socket.io.js"></script>
+      <!-- Importa a biblioteca Moment.js de uma CDN. -->
       <script
         src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
         integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
         crossorigin="anonymous"
       ></script>
+      <!-- <!-- Importa o script principal da aplicação (main.js) -->
       <script src="main.js"></script>
     </main>
 
