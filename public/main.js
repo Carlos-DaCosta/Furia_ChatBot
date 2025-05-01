@@ -4,7 +4,8 @@ const socket = io();
 // Seleciona o elemento que exibe o número total de usuários conectados
 const clientsTotal = document.getElementById("client-total");
 
-// Seleciona os elementos do DOM usados no chat
+// seleciona os elementos do DOM usados no chat
+// o metodo document.getElementById consulta o html e busca as informações contidas pelos parâmetros passadas pelo usuario e salva em uma variável para uma requisição futura onde ele ira usar para a exibiçao em tela
 const messageContainer = document.getElementById("message-container");
 const nameInput = document.getElementById("name-input");
 const messageForm = document.getElementById("message-form");
