@@ -46,8 +46,10 @@ O projeto tem como principal objetivo demonstrar conhecimentos em:
 - o arquivo `app.js` é responsavel pela inicialização do servidor utilizando o socket.io.
 - o `main.js` faz ligação do client-side com o server-side buscando as informações passadas pelos usuários e direcionando-a para o server e depois o caminho inverso.
 - o arquivo `chat.log` contem as informações salvas pelo site que foram passadas pelo chat.
-- Para iniciar o servidor usar a syntaxe:
+- Para iniciar o servidor usar a seguinte syntaxe no terminal:
   
   `npm run dev`
 
-foi criado um script dentro do package.json para facil iniciação, entretando, é necessario as seguintes ferramentas: nodemon, socket.io, express.
+em seguida em seu navegador escrever `localhost:4000/`
+
+- foi criado um script dentro do package.json para facil iniciação, entretando, é necessario as seguintes ferramentas: nodemon, socket.io, express.
