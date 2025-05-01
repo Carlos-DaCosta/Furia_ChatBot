@@ -41,6 +41,6 @@ O projeto tem como principal objetivo demonstrar conhecimentos em:
 - Não possui layout responsivo ou suporte para dispositivos móveis.
 - Para iniciar o código usar a syntaxe:
   
-  npm run dev
+  `npm run dev`
 
-- foi criado um script dentro do package.json para facil iniciação
+foi criado um script dentro do package.json para facil iniciação
