@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -8,12 +8,11 @@
 }
 
 main {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: #ffffff;
 }
 
-
-.cabeçalho{
+.cabeçalho {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,7 +161,7 @@ main {
   outline: none;
   background-color: #b4b4b457;
   cursor: pointer;
-  margin: 0 22px; 
+  margin: 0 22px;
   border-radius: 25px;
 }
 
@@ -176,7 +175,6 @@ main {
   margin: 35px 0 0 0;
   color: #7e7e7e;
   margin-left: 22%;
-
 }
 
 .container-1 {
@@ -187,8 +185,6 @@ main {
   gap: 200px;
   margin-right: 200px;
 }
-
-
 
 .container-rodape {
   display: grid;
@@ -216,7 +212,6 @@ main {
   margin-top: 40px;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  
 }
 
 .redes-sociais {
